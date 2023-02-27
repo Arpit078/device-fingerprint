@@ -4,5 +4,5 @@ const mem = navigator.deviceMemory
 const proc = navigator.hardwareConcurrency
 const width = screen.width
 const height = screen.height
-
-fingerprint.innerHTML = `your device fingerprint id is : ${mem}.${proc}.${width}.${height}`
+const agent = navigator.userAgent
+fingerprint.innerHTML = `your device fingerprint id is : ${mem}.${proc}.${width}.${height} and ${agent}`

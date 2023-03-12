@@ -5,5 +5,15 @@ const proc = navigator.hardwareConcurrency
 const width = screen.width
 const height = screen.height
 const agent = navigator.userAgent
-const touchpoint = navigator.maxTouchPoints
-fingerprint.innerHTML = `your device fingerprint id is : ${mem}.${proc}.${width}.${height}<br> <b>number of touchpoints are</b> : ${touchpoint} <br> useragent is : ${agent}`
+const successCallback = (position) => {
+    console.log(position.coords.latitude);
+    let loc= [ position.coords.latitude,position.coords.longitude  ]
+    fingerprint.innerHTML = `your device fingerprint id is : ${mem}.${proc}.${width}.${height} <br> useragent is : ${agent} <br> your location is : ${loc}`
+
+  };
+  
+  const errorCallback = (error) => {
+    console.log(error);
+  };
+  
+navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
